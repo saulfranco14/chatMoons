@@ -11,12 +11,20 @@ const messageInput          = document.getElementById('message-input')
 
     //Message of the users
     socket.on('chat-message', data =>{
-       appendMessage(data)
+        console.log(data);
+       appendMessage(`${data.name} : ${data.message}`)
     })
 
     //Connection in the user
     socket.on('user-connected', name =>{
+        console.log(name);
         appendMessage(`${name} conectado`)
+        console.log(name)
+    })
+
+    //Disconnected in the user
+    socket.on('user-disconnected', name =>{
+        appendMessage(`${name} desconectado`)
         console.log(name)
     })
 
@@ -24,6 +32,7 @@ const messageInput          = document.getElementById('message-input')
     messageForm.addEventListener('submit', e =>{
         e.preventDefault()
         const message = messageInput.value 
+        appendMessage(`Tu : ${message}`)
         socket.emit('send-chat-message', message)
         messageInput.value= ''
     })

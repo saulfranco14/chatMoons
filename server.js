@@ -4,11 +4,19 @@ io.on('connection', socket => {
 
     // New User
     socket.on('new-user', name =>{
-        users[socket.io] = name
+        console.log(socket)
+        users[socket.id] = name
         socket.broadcast.emit('user-connected', name)
     })
 
     socket.on('send-chat-message', message=>{
-        socket.broadcast.emit('chat-message', message)
+        socket.broadcast.emit('chat-message',{ message : message , name : users[socket.id] })
+    })
+
+    // Disconnected
+    socket.on('disconnect', () =>{
+        socket.broadcast.emit('user-disconnected', users[socket.id])
+        delete users[socket.io]
+        
     })
 })
