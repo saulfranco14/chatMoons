@@ -4,7 +4,6 @@ io.on('connection', socket => {
 
     // New User
     socket.on('new-user', name =>{
-        console.log(socket)
         users[socket.id] = name
         socket.broadcast.emit('user-connected', name)
     })
