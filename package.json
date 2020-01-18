@@ -1,0 +1,25 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "description": "Chat Moons para el envió de mensajes e interacción con varias personas",
+  "main": "index.js",
+  "scripts": {
+    "devStart" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saulfranco14/chatMoons.git"
+  },
+  "author": "Saul Franco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saulfranco14/chatMoons/issues"
+  },
+  "homepage": "https://github.com/saulfranco14/chatMoons#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
